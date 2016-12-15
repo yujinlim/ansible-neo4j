@@ -38,9 +38,9 @@
   template: src=neo4j-server.properties dest=/etc/neo4j/neo4j-server.properties owner=neo4j group=adm mode=0644
   notify: restart neo4j
 
-- name: configure Neo4j wrapper properties
-  template: src=neo4j-wrapper.conf dest=/etc/neo4j/neo4j-wrapper.conf owner=neo4j group=adm mode=0644
-  notify: restart neo4j
+#- name: configure Neo4j wrapper properties
+#  template: src=neo4j-wrapper.conf dest=/etc/neo4j/neo4j-wrapper.conf owner=neo4j group=adm mode=0644
+#  notify: restart neo4j
 
 - name: set open fd soft and hard limit
   lineinfile: dest=/etc/security/limits.conf regexp="{{ item.regexp }}" line="{{ item.line }}" insertbefore="# End of file" state=present
@@ -50,5 +50,5 @@
   when: neo4j_update_limits
 
 - name: ensure Neo4j is enabled and started
-  service: name=neo4j-service enabled=yes state=started
+  service: name=neo4j enabled=yes state=started
   when: neo4j_manage_service
