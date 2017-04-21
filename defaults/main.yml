@@ -69,3 +69,6 @@ neo4j_wrapper_java_maxmemory:
 neo4j_server_http_log_enabled: false
 neo4j_server_http_log_config: conf/neo4j-http-logging.xml
 neo4j_keep_logical_logs: true
+
+# dbms
+neo4j_dbms_directories_data: /var/lib/neo4j/data
